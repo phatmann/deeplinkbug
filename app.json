@@ -1,11 +1,12 @@
 {
   "expo": {
+    "owner": "next-app",
     "name": "deep-link-bug",
     "slug": "deep-link-bug",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "deeplinkbug",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -19,7 +20,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tony-nft.deep-link-bug"
     },
     "android": {
       "adaptiveIcon": {
