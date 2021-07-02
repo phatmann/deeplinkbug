@@ -4,9 +4,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Navigation from './navigation';
 import * as Notifications from 'expo-notifications';
-import Constants from 'expo-constants'
+import Constants from 'expo-constants';
 import { Platform } from 'react-native'
 import * as Linking from 'expo-linking';
+import * as Updates from 'expo-updates';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -28,6 +29,16 @@ export default function App() {
       Linking.openURL(url);
     });
     return () => subscription.remove();
+  }, []);
+
+  React.useEffect(() => {
+    const subscription = Updates.addListener(event => {
+      if (event.type === Updates.UpdateEventType.UPDATE_AVAILABLE) {
+        alert('Update available, restart app')
+      }
+    })
+
+    return () => subscription.remove()
   }, []);
   
   return (

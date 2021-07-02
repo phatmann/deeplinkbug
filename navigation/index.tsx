@@ -6,22 +6,21 @@
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React, { useEffect, useState } from 'react'
-import { Text, ActivityIndicator, ColorSchemeName, View } from 'react-native'
 import NotFoundScreen from '../screens/NotFoundScreen'
 import { RootStackParamList } from '../types'
 import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 
 export default function Navigation() {
-  const [ready, setReady] = useState(false)
+  // const [ready, setReady] = useState(false)
   
-  useEffect(() => {
-    setTimeout(() => setReady(true), 5000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => setReady(true), 1000)
+  // }, [])
 
-  if (!ready) {
-    return null
-  }
+  // if (!ready) {
+  //   return null
+  // }
 
   return (
     <NavigationContainer
