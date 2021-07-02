@@ -3,21 +3,30 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
-import { ColorSchemeName } from 'react-native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import React, { useEffect, useState } from 'react'
+import { Text, ActivityIndicator, ColorSchemeName, View } from 'react-native'
+import NotFoundScreen from '../screens/NotFoundScreen'
+import { RootStackParamList } from '../types'
+import BottomTabNavigator from './BottomTabNavigator'
+import LinkingConfiguration from './LinkingConfiguration'
 
-import NotFoundScreen from '../screens/NotFoundScreen';
-import { RootStackParamList } from '../types';
-import BottomTabNavigator from './BottomTabNavigator';
-import LinkingConfiguration from './LinkingConfiguration';
+export default function Navigation() {
+  const [ready, setReady] = useState(false)
+  
+  useEffect(() => {
+    setTimeout(() => setReady(true), 5000)
+  }, [])
 
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+  if (!ready) {
+    return null
+  }
+
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      >
       <RootNavigator />
     </NavigationContainer>
   );

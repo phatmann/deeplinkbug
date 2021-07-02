@@ -2,7 +2,6 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useRef, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import * as Notifications from 'expo-notifications';
 import Constants from 'expo-constants'
@@ -18,8 +17,6 @@ Notifications.setNotificationHandler({
 });
 
 export default function App() {
-  const colorScheme = useColorScheme();
-  
   useEffect(() => {
     registerForPushNotificationsAsync();
   }, []);
@@ -35,7 +32,7 @@ export default function App() {
   
   return (
     <SafeAreaProvider>
-      <Navigation colorScheme={colorScheme} />
+      <Navigation />
       <StatusBar />
     </SafeAreaProvider>
   );
