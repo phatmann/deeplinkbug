@@ -23,15 +23,6 @@ export default function App() {
   }, []);
 
   React.useEffect(() => {
-    const subscription = Notifications.addNotificationResponseReceivedListener(response => {
-      const route = response.notification.request.content.data.route as string;
-      const url = Linking.createURL('/' + route)
-      Linking.openURL(url);
-    });
-    return () => subscription.remove();
-  }, []);
-
-  React.useEffect(() => {
     const subscription = Updates.addListener(event => {
       if (event.type === Updates.UpdateEventType.UPDATE_AVAILABLE) {
         alert('Update available, restart app')

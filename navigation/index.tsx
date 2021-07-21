@@ -12,16 +12,6 @@ import BottomTabNavigator from './BottomTabNavigator'
 import LinkingConfiguration from './LinkingConfiguration'
 
 export default function Navigation() {
-  // const [ready, setReady] = useState(false)
-  
-  // useEffect(() => {
-  //   setTimeout(() => setReady(true), 1000)
-  // }, [])
-
-  // if (!ready) {
-  //   return null
-  // }
-
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
