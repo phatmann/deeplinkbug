@@ -1,0 +1,13 @@
+{ 
+  "Simulator Target Bundle": "com.tony-nft.deep-link-bug",
+  "aps": {
+      "alert": {
+          "title": "EXPO iOS Simulator PUSH",
+          "body": "It works!"
+      }
+  },
+  "experienceId": "@next-app/deep-link-bug",
+  "body": { 
+      "route": "two"
+   } 
+}
