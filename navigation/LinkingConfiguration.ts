@@ -9,7 +9,7 @@ import * as Linking from 'expo-linking';
 import * as Notifications from 'expo-notifications';
 
 const linking: LinkingOptions = {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: [Linking.createURL('/')],
   config: {
     screens: {
       Root: {
@@ -38,7 +38,7 @@ const linking: LinkingOptions = {
     // Listen to push notifications
     const subscription = Notifications.addNotificationResponseReceivedListener(response => {
       const route = response.notification.request.content.data.route as string;
-      const url = Linking.createURL(route)
+      const url = Linking.createURL('/' + route);
 
       // Let React Navigation handle the URL
       listener(url);
